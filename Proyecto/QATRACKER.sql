@@ -1,4 +1,3 @@
-
 DROP DATABASE IF EXISTS `qatracker`;
 
 CREATE DATABASE  IF NOT EXISTS `qatracker` /*!40100 DEFAULT CHARACTER SET utf8 */;
@@ -68,7 +67,7 @@ DROP TABLE IF EXISTS `tarea`;
   `idtarea` INT NOT NULL AUTO_INCREMENT,
   `descripciontarea` VARCHAR(45) NOT NULL,
   `idusuario` INT NOT NULL,
-  `estadotarea` VARCHAR(45) NOT NULL,
+  `estadotarea` INT NOT NULL,
   `idproyecto` INT NOT NULL,
   PRIMARY KEY (`idtarea`),
   UNIQUE INDEX `idtarea_UNIQUE` (`idtarea` ASC),
@@ -97,7 +96,7 @@ CREATE TABLE `qatracker`.`issue` (
   `idissue` INT NOT NULL AUTO_INCREMENT,
   `descripcionissue` VARCHAR(45) NOT NULL,
   `idtarea` INT NOT NULL,
-  `estadoissue` VARCHAR(45) NOT NULL,
+  `estadoissue` INT NOT NULL,
   PRIMARY KEY (`idissue`),
   UNIQUE INDEX `idissue_UNIQUE` (`idissue` ASC),
   INDEX `idtarea_idx` (`idtarea` ASC),
@@ -106,3 +105,57 @@ CREATE TABLE `qatracker`.`issue` (
     REFERENCES `qatracker`.`tarea` (`idtarea`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+--
+-- Insert user admin
+--	
+	
+INSERT INTO `qatracker`.`usuario` 
+(`NombreUsuario`, `Clave`, `EstadoUsuario`, `Puesto`)
+VALUES
+('admin', 'admin', 1, 'Administrador');	
+
+--
+-- Insert project Administracion
+--	
+
+INSERT INTO `qatracker`.`proyecto`
+(`descripcionproy`, `estadoproy`, `fechainicio`, `fechafinal`)
+VALUES
+('Administracion', 1, '2014-01-01', '2099-12-31');
+
+--
+-- Insert task Crear usuarios
+--	
+
+INSERT INTO `qatracker`.`tarea`
+(`descripciontarea`, `idusuario`, `estadotarea`, `idproyecto`)
+VALUES
+('Crear usuarios', 1, 2, 1);
+
+--
+-- Insert task Asignar tareas a usuarios
+--	
+
+INSERT INTO `qatracker`.`tarea`
+(`descripciontarea`, `idusuario`, `estadotarea`, `idproyecto`)
+VALUES
+('Asignar tareas a usuarios', 1, 2, 1);
+
+--
+-- Insert issue No hay usuarios
+--	
+
+INSERT INTO `qatracker`.`issue`
+(`descripcionissue`, `idtarea`, `estadoissue`)
+VALUES
+('No hay usuarios', 1, 2);
+
+--
+-- Insert issue No hay proyectos
+--	
+
+INSERT INTO `qatracker`.`issue`
+(`descripcionissue`, `idtarea`, `estadoissue`)
+VALUES
+('No hay proyectos', 1, 1);
