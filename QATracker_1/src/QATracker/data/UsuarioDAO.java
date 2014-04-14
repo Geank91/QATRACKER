@@ -92,6 +92,10 @@ public class UsuarioDAO {
         String sql = "select * from usuario where NombreUsuario='"+usuario.getDescripcionUsuario()+"'";
         ResultSet res = mySQLDB.executeQuery(sql);
         if (res.next()){
+            usuario.setIdUsuario(res.getInt(1));
+            usuario.setDescripcionUsuario(res.getString(2));
+            usuario.setClave(res.getString(3));
+            usuario.setEstadoUsuario(res.getInt(4));
             usuario.setPuesto(res.getString(5));
             exist=true;
         }
