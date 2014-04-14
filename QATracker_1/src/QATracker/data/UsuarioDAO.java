@@ -19,49 +19,80 @@ import java.util.ArrayList;
 public class UsuarioDAO {
     
     private MYSQLDB mySQLDB;
+    private Usuario usuarioActual;
     
     public UsuarioDAO(){
-    
+        this.usuarioActual=null;
     }
-    
-    // Tarea hacer el delete y el update
-    
-    public void delete(Usuario usuario)throws SQLException{
-        mySQLDB = new MYSQLDB();
-        String sql = "delete from usuario where id = '"+usuario.getIdUsuario()+"' and name='"+usuario.getDescripcionUsuario()+"'";
-        mySQLDB.execute(sql);
-        mySQLDB.closeExecute();
+
+    public Usuario getUsuarioActual() throws SQLException {
+        if(this.usuarioActual!=null){
+            mySQLDB= new MYSQLDB();
+            String sql= "Select * from usuario where NombreUsuario='"+this.usuarioActual.getDescripcionUsuario()+"'";
+            ResultSet res= mySQLDB.executeQuery(sql);
+            while(res.next()){
+                this.usuarioActual.setIdUsuario(res.getInt(1));
+                this.usuarioActual.setEstadoUsuario(res.getInt(4));
+                this.usuarioActual.setClave(res.getString(3));
+                this.usuarioActual.setPuesto(res.getString(5));
+            }
+            mySQLDB.closeExecuteQuery();
+        }
+        return this.usuarioActual;
     }
-    
-    public void update(Usuario usuario)throws SQLException{
-        mySQLDB = new MYSQLDB();
-        String sql = "update usuario set name = '"+usuario.getDescripcionUsuario()+"' where id='"+usuario.getIdUsuario()+"'";
-        mySQLDB.execute(sql);
-        mySQLDB.closeExecute();
+
+    public void setUsuarioActual(Usuario usuarioActual) {
+        this.usuarioActual = usuarioActual;
     }
     
     public void add(Usuario usuario) throws SQLException{
         mySQLDB = new MYSQLDB();
-        String sql = "insert into usuario (id,name)" + "values (" +usuario.getIdUsuario()+", '"+usuario.getDescripcionUsuario()+"')";
+        String sql = "insert into usuario (NombreUsuario, Clave, EstadoUsuario, Puesto)" + "values ('" +usuario.getDescripcionUsuario()+"'"
+                + ", '"+usuario.getClave()+"', "+usuario.getEstadoUsuario()+", '"+usuario.getPuesto()+"')";
         mySQLDB.execute(sql);
         mySQLDB.closeExecute();
     }
     
-    public ResultSet select(Usuario usuario)throws SQLException{
+    public void select(Usuario usuario)throws SQLException{
         mySQLDB = new MYSQLDB();
-        String sql =  "SELECT * FROM usuario WHERE idusuario = "+usuario.getIdUsuario()+"";
-        ResultSet res = mySQLDB.executeQuery(sql);        
+        String sql =  "SELECT * FROM usuario WHERE idUsuario = "+usuario.getIdUsuario()+"";
+        ResultSet res = mySQLDB.executeQuery(sql); 
+        while(res.next()){
+            System.out.println("Nombre: "+res.getString(2));
+            System.out.println("Puesto: "+res.getString(5));
+        }
         mySQLDB.closeExecuteQuery();
-        return res;
-        
+    }
+    
+    public boolean match(Usuario usuario) throws SQLException{
+        mySQLDB= new MYSQLDB();
+        boolean match= false;
+        String sql= "select Clave from usuario where NombreUsuario= '"+usuario.getDescripcionUsuario()+"'";
+        ResultSet res= mySQLDB.executeQuery(sql);
+        while(res.next()){
+            if (res.getString(1).matches(usuario.getClave())) {
+                match= true;
+            }
+        }
+        mySQLDB.closeExecuteQuery();
+        return match;
+    }
+    
+    public void login(Usuario usuario){
+        this.usuarioActual= usuario;
+    }
+    
+    public void logOut(){
+        this.usuarioActual=null;
     }
     
     public boolean exists(Usuario usuario)throws SQLException{
         boolean exist = false;
         mySQLDB = new MYSQLDB();
-        String sql = "select * from usuario where name='"+usuario.getDescripcionUsuario()+"'";
+        String sql = "select * from usuario where NombreUsuario='"+usuario.getDescripcionUsuario()+"'";
         ResultSet res = mySQLDB.executeQuery(sql);
         if (res.next()){
+            usuario.setPuesto(res.getString(5));
             exist=true;
         }
         mySQLDB.closeExecuteQuery();

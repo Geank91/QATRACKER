@@ -6,6 +6,16 @@
 
 package QATracker.view;
 
+import QATracker.business.UsuarioBusiness;
+import QATracker.domain.Usuario;
+import static QATracker.view.QATracker.menuSesion;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JMenu;
+
 /**
  *
  * @author Michelle
@@ -15,6 +25,7 @@ public class LogIn extends javax.swing.JInternalFrame {
     /**
      * Creates new form LogIn
      */
+    
     public LogIn() {
         initComponents();
     }
@@ -43,6 +54,11 @@ public class LogIn extends javax.swing.JInternalFrame {
         lbPassword.setText("Password:");
 
         btLogIn.setText("Log In");
+        btLogIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLogInActionPerformed(evt);
+            }
+        });
 
         passPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +111,27 @@ public class LogIn extends javax.swing.JInternalFrame {
     private void passPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passPasswordActionPerformed
+
+    private void btLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogInActionPerformed
+        try {
+            // TODO add your handling code here:
+            Usuario usuario= new Usuario();
+            usuario.setDescripcionUsuario(txtUserName.getText());
+            //JOptionPane.showMessageDialog(rootPane, txtUserName.getText());
+            usuario.setClave(passPassword.getText());
+            QATracker.usuarioBus.login(usuario);
+            QATracker.usuarioBus.setUsuarioActual(usuario);
+            JOptionPane.showMessageDialog(rootPane, "Bienvenido usuario " + usuario.getDescripcionUsuario(), "Inicio", JOptionPane.PLAIN_MESSAGE);
+            menuSesion.setText("Usuario conectado: "+usuario.getDescripcionUsuario() + ". Puesto: " + usuario.getPuesto() + ". ");
+        } catch (SQLException ex) {
+            Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_btLogInActionPerformed
+
+    public JTextField getTxtUserName() {
+        return txtUserName;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

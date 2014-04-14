@@ -6,8 +6,10 @@
 
 package QATracker.business;
 
+import QATracker.data.ProyectoDAO;
 import QATracker.data.TareaDAO;
 import QATracker.domain.Tarea;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -16,15 +18,14 @@ import java.sql.SQLException;
  */
 public class TareaBusiness {
     
-    public TareaBusiness() {
-    }
+    private TareaDAO tareaDAO;
     
-    TareaDAO tareaDAO = new TareaDAO();
-    public TareaBusiness(TareaDAO TareaDAO){
-        this.tareaDAO = TareaDAO;
+    public TareaBusiness() {
+        this.tareaDAO= new TareaDAO();
     }
+   
     public void crear(Tarea tarea) throws SQLException{
-        if (tareaDAO.exists(tarea)) {
+        if (tareaDAO.exists(tarea)==false) {
             tareaDAO.add(tarea);
         } else {
             throw new SQLException("No se puede crear una nueva tarea ya que esta tarea ya existe");
@@ -37,12 +38,24 @@ public class TareaBusiness {
             throw new SQLException("No se puede actualizar la tarea por que no se encuentra en la base de datos");
         }
     }
-    public void imprimir(Tarea tarea) throws SQLException{
-        if (tareaDAO.exists(tarea)) {
-            tareaDAO.select(tarea);
+    
+    public void renombrar(Tarea tarea) throws SQLException{
+        if (tareaDAO.exists(tarea)==true) {
+            tareaDAO.rename(tarea);
+        }else{
+            throw new SQLException("No se puede actualizar la tarea por que no se encuentra en la base de datos");
+        }
+    }
+    
+    public ResultSet consultaProyecto(Tarea tarea) throws SQLException{
+        return tareaDAO.consultaProyecto(tarea);
+    }
+    
+    public ResultSet consultaId(Tarea tarea) throws SQLException{
+        if (tareaDAO.exists(tarea)==true) {
+            return tareaDAO.consultaCodigo(tarea);
         } else {
             throw new SQLException("No se puede imprimir la tarea por que este no existe en la base de datos");
         }
     }
-    
 }

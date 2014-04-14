@@ -14,13 +14,11 @@ public class Proyecto {
     private int estadoProyecto;
     private Date fechainicio;
     private Date fechafinal;
-    private ArrayList<Proyecto> proy;
 
     public Proyecto() {
     }
 
-    public Proyecto(int idProyecto, String descripcionProyecto, int estadoProyecto, Date fechainicio, Date fechafinal) {
-        this.idProyecto = idProyecto;
+    public Proyecto(String descripcionProyecto, int estadoProyecto, Date fechainicio, Date fechafinal) {
         this.descripcionProyecto = descripcionProyecto;
         this.estadoProyecto = estadoProyecto;
         this.fechainicio = fechainicio;
@@ -67,14 +65,4 @@ public class Proyecto {
         this.fechafinal = fechafinal;
     }
 
-    public ArrayList<Proyecto> getProy() {
-        return proy;
-    }
-
-    public void setProy(ArrayList<Proyecto> proy) {
-        this.proy = proy;
-    }
-    
-    
-    
 }

@@ -24,42 +24,40 @@ public class IssueDAO {
     
     }
     
-    // Tarea hacer el delete y el update
-    
-    public void delete(Issue issue)throws SQLException{
-        mySQLDB = new MYSQLDB();
-        String sql = "delete from issue where id = '"+issue.getIdIssue()+"' and name='"+issue.getDescripcionIssue()+"'";
-        mySQLDB.execute(sql);
-        mySQLDB.closeExecute();
-    }
-    
     public void update(Issue issue)throws SQLException{
         mySQLDB = new MYSQLDB();
-        String sql = "update issue set name = '"+issue.getDescripcionIssue()+"' where id='"+issue.getIdIssue()+"'";
+        String sql = "update issue set descripcionissue= '"+issue.getDescripcionIssue()+"', idtarea="+issue.getIdTarea()+", estadoissue="
+                +issue.getEstadoIssue()+" where idissue='"+issue.getIdIssue()+"'";
         mySQLDB.execute(sql);
         mySQLDB.closeExecute();
     }
     
     public void add(Issue issue) throws SQLException{
         mySQLDB = new MYSQLDB();
-        String sql = "insert into issue (id,name)" + "values (" +issue.getIdIssue()+", '"+issue.getDescripcionIssue()+"')";
+        String sql = "insert into issue (descripcionissue, idtarea, estadoissue) values ('"+issue.getDescripcionIssue()+"',"
+                + issue.getIdTarea()+", "+issue.getEstadoIssue()+")";
         mySQLDB.execute(sql);
         mySQLDB.closeExecute();
     }
     
-    public ResultSet select(Issue issue)throws SQLException{
+    public ResultSet consultaTarea(Issue issue)throws SQLException{
         mySQLDB = new MYSQLDB();
-        String sql =  "SELECT * FROM issue WHERE idissue = "+issue.getIdIssue()+"";
+        String sql =  "SELECT * FROM issue WHERE idtarea= "+issue.getIdTarea();
         ResultSet res = mySQLDB.executeQuery(sql);        
-        mySQLDB.closeExecuteQuery();
         return res;
-        
+    }
+    
+    public ResultSet consultaId(Issue issue) throws SQLException{
+        mySQLDB = new MYSQLDB();
+        String sql =  "SELECT * FROM issue WHERE idissue= "+issue.getIdIssue();
+        ResultSet res = mySQLDB.executeQuery(sql);        
+        return res;
     }
     
     public boolean exists(Issue issue)throws SQLException{
         boolean exist = false;
         mySQLDB = new MYSQLDB();
-        String sql = "select * from issue where name='"+issue.getDescripcionIssue()+"'";
+        String sql = "select * from issue where idissue="+issue.getIdIssue();
         ResultSet res = mySQLDB.executeQuery(sql);
         if (res.next()){
             exist=true;

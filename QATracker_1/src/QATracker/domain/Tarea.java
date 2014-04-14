@@ -19,13 +19,11 @@ public class Tarea {
     private int idUsuario;
     private int estadoTarea;
     private int idProyecto;
-    private ArrayList<Tarea> tar;
 
     public Tarea() {
     }
 
-    public Tarea(int idTarea, String descripcionTarea, int idUsuario, int estadoTarea, int idProyecto) {
-        this.idTarea = idTarea;
+    public Tarea(String descripcionTarea, int idUsuario, int estadoTarea, int idProyecto) {
         this.descripcionTarea = descripcionTarea;
         this.idUsuario = idUsuario;
         this.estadoTarea = estadoTarea;
@@ -39,7 +37,7 @@ public class Tarea {
     public void setIdTarea(int idTarea) {
         this.idTarea = idTarea;
     }
-
+    
     public String getDescripcionTarea() {
         return descripcionTarea;
     }
@@ -72,14 +70,5 @@ public class Tarea {
         this.idProyecto = idProyecto;
     }
 
-    public ArrayList<Tarea> getTar() {
-        return tar;
-    }
-
-    public void setTar(ArrayList<Tarea> tar) {
-        this.tar = tar;
-    }
-    
-    
     
 }

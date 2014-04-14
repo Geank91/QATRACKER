@@ -6,6 +6,12 @@
 
 package QATracker.view;
 
+import QATracker.domain.Tarea;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Michelle
@@ -33,21 +39,20 @@ public class RenombrarTarea extends javax.swing.JInternalFrame {
         txtIdTarea = new javax.swing.JTextField();
         txtNuevoNombre = new javax.swing.JTextField();
         btRenombrar = new javax.swing.JButton();
-        lbNombreAnterior = new javax.swing.JLabel();
-        txtNombreAnterior = new javax.swing.JTextField();
 
         lbIdTarea.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         lbIdTarea.setForeground(new java.awt.Color(0, 51, 255));
         lbIdTarea.setText("Id Tarea:");
 
         lbNuevoNombre.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbNuevoNombre.setText("Nuevo Nombre:");
+        lbNuevoNombre.setText("Nueva Descripcion:");
 
         btRenombrar.setText("Renombrar");
-
-        lbNombreAnterior.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbNombreAnterior.setForeground(new java.awt.Color(0, 51, 255));
-        lbNombreAnterior.setText("Nombre Anterior:");
+        btRenombrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRenombrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,22 +62,19 @@ public class RenombrarTarea extends javax.swing.JInternalFrame {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lbIdTarea)
-                            .addComponent(lbNombreAnterior))
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(lbNuevoNombre)
-                        .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btRenombrar)
-                                .addGap(58, 58, 58)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(95, 95, 95)
+                                .addComponent(btRenombrar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(txtNuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lbIdTarea)
+                        .addGap(102, 102, 102)
+                        .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,30 +83,38 @@ public class RenombrarTarea extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbIdTarea)
                     .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbNombreAnterior)
-                    .addComponent(txtNombreAnterior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(65, 65, 65)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNuevoNombre)
                     .addComponent(txtNuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btRenombrar)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btRenombrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRenombrarActionPerformed
+        try {
+            // TODO add your handling code here:
+            Tarea tarea= new Tarea();
+            tarea.setIdTarea(Integer.parseInt(txtIdTarea.getText()));
+            tarea.setDescripcionTarea(txtNuevoNombre.getText());
+            QATracker.tareaBus.renombrar(tarea);
+            JOptionPane.showMessageDialog(rootPane, "La tarea ha sido renombrada.", "Exito", JOptionPane.OK_OPTION);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_btRenombrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btRenombrar;
     private javax.swing.JLabel lbIdTarea;
-    private javax.swing.JLabel lbNombreAnterior;
     private javax.swing.JLabel lbNuevoNombre;
     private javax.swing.JTextField txtIdTarea;
-    private javax.swing.JTextField txtNombreAnterior;
     private javax.swing.JTextField txtNuevoNombre;
     // End of variables declaration//GEN-END:variables
 }

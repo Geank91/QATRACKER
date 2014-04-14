@@ -6,6 +6,12 @@
 
 package QATracker.view;
 
+import QATracker.domain.Issue;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Michelle
@@ -32,7 +38,7 @@ public class CrearIssue extends javax.swing.JInternalFrame {
         lbDescripcion = new javax.swing.JLabel();
         lbEstado = new javax.swing.JLabel();
         comboEstado10 = new javax.swing.JComboBox();
-        txtFechaInicio = new javax.swing.JTextField();
+        txtIdTarea = new javax.swing.JTextField();
         btCrear = new javax.swing.JButton();
         txtDescripcion = new javax.swing.JTextField();
 
@@ -53,6 +59,11 @@ public class CrearIssue extends javax.swing.JInternalFrame {
         });
 
         btCrear.setText("Crear");
+        btCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCrearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,7 +81,7 @@ public class CrearIssue extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(lbFechaInicio)
                             .addGap(36, 36, 36)
-                            .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbEstado)
                         .addGap(78, 78, 78)
@@ -91,7 +102,7 @@ public class CrearIssue extends javax.swing.JInternalFrame {
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbFechaInicio)
-                    .addComponent(txtFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(48, Short.MAX_VALUE))
@@ -104,15 +115,29 @@ public class CrearIssue extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstado10ActionPerformed
 
+    private void btCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearActionPerformed
+        try {
+            // TODO add your handling code here:
+            Issue issue= new Issue();
+            issue.setDescripcionIssue(txtDescripcion.getText());
+            issue.setEstadoIssue(comboEstado10.getSelectedIndex()+1);
+            issue.setIdTarea(Integer.parseInt(txtIdTarea.getText()));
+            QATracker.issueBus.crear(issue);
+            JOptionPane.showMessageDialog(rootPane, "El issue se ha creado.", "Exito", JOptionPane.PLAIN_MESSAGE);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_btCrearActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCrear;
     private javax.swing.JComboBox comboEstado10;
-    private javax.swing.JComboBox comboEstado9;
     private javax.swing.JLabel lbDescripcion;
     private javax.swing.JLabel lbEstado;
     private javax.swing.JLabel lbFechaInicio;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtFechaInicio;
+    private javax.swing.JTextField txtIdTarea;
     // End of variables declaration//GEN-END:variables
 }

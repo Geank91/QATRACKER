@@ -19,13 +19,11 @@ public class Usuario {
     private String clave;
     private int estadoUsuario;
     private String puesto;
-    private ArrayList<Usuario> usu;
 
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String descripcionUsuario, String clave, int estadoUsuario, String puesto) {
-        this.idUsuario = idUsuario;
+    public Usuario(String descripcionUsuario, String clave, int estadoUsuario, String puesto) {
         this.descripcionUsuario = descripcionUsuario;
         this.clave = clave;
         this.estadoUsuario = estadoUsuario;
@@ -72,14 +70,4 @@ public class Usuario {
         this.puesto = puesto;
     }
 
-    public ArrayList<Usuario> getUsu() {
-        return usu;
-    }
-
-    public void setUsu(ArrayList<Usuario> usu) {
-        this.usu = usu;
-    }
-    
-    
-    
 }

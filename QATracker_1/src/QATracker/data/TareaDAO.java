@@ -24,42 +24,47 @@ public class TareaDAO {
     
     }
     
-    // Tarea hacer el delete y el update
-    
-    public void delete(Tarea tarea)throws SQLException{
+    public void rename(Tarea tarea)throws SQLException{
         mySQLDB = new MYSQLDB();
-        String sql = "delete from tarea where id = '"+tarea.getIdTarea()+"' and name='"+tarea.getDescripcionTarea()+"'";
+        String sql = "update tarea set descripciontarea='"+tarea.getDescripcionTarea()+"' where idtarea= "+tarea.getIdTarea();
         mySQLDB.execute(sql);
         mySQLDB.closeExecute();
     }
     
     public void update(Tarea tarea)throws SQLException{
         mySQLDB = new MYSQLDB();
-        String sql = "update tarea set name = '"+tarea.getDescripcionTarea()+"' where id='"+tarea.getIdTarea()+"'";
+        String sql = "update tarea set descripciontarea = '"+tarea.getDescripcionTarea()+"', idusuario="+tarea.getIdUsuario()+","
+                + "estadotarea="+tarea.getEstadoTarea()+", idproyecto="+tarea.getIdProyecto()+" where idtarea="+tarea.getIdTarea();
         mySQLDB.execute(sql);
         mySQLDB.closeExecute();
     }
     
     public void add(Tarea tarea) throws SQLException{
         mySQLDB = new MYSQLDB();
-        String sql = "insert into tarea (id,name)" + "values (" +tarea.getIdTarea()+", '"+tarea.getDescripcionTarea()+"')";
+        String sql = "insert into tarea (descripciontarea, idusuario, estadotarea, idproyecto) values ('"+tarea.getDescripcionTarea()+"',"
+                + tarea.getIdUsuario()+","+tarea.getEstadoTarea()+","+tarea.getIdProyecto()+")";
         mySQLDB.execute(sql);
         mySQLDB.closeExecute();
     }
     
-    public ResultSet select(Tarea tarea)throws SQLException{
+    public ResultSet consultaProyecto(Tarea tarea)throws SQLException{
         mySQLDB = new MYSQLDB();
-        String sql =  "SELECT * FROM tarea WHERE idtarea = "+tarea.getIdTarea()+"";
-        ResultSet res = mySQLDB.executeQuery(sql);        
-        mySQLDB.closeExecuteQuery();
+        String sql =  "SELECT * FROM tarea WHERE idproyecto = "+tarea.getIdProyecto();
+        ResultSet res = mySQLDB.executeQuery(sql);
         return res;
-        
+    }
+    
+    public ResultSet consultaCodigo(Tarea tarea)throws SQLException{
+        mySQLDB = new MYSQLDB();
+        String sql =  "SELECT * FROM tarea WHERE idtarea = "+tarea.getIdTarea();
+        ResultSet res = mySQLDB.executeQuery(sql);
+        return res;
     }
     
     public boolean exists(Tarea tarea)throws SQLException{
         boolean exist = false;
         mySQLDB = new MYSQLDB();
-        String sql = "select * from tarea where name='"+tarea.getDescripcionTarea()+"'";
+        String sql = "select * from tarea where idtarea="+tarea.getIdTarea();
         ResultSet res = mySQLDB.executeQuery(sql);
         if (res.next()){
             exist=true;

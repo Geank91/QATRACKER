@@ -6,6 +6,12 @@
 
 package QATracker.view;
 
+import QATracker.domain.Proyecto;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Michelle
@@ -28,19 +34,24 @@ public class BorrarProyecto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        lbId = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
+        btBorrar = new javax.swing.JButton();
 
-        jLabel1.setText("Id del Proyecto:");
+        lbId.setText("Id del Proyecto:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtIdActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Borrar");
+        btBorrar.setText("Borrar");
+        btBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBorrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -48,11 +59,11 @@ public class BorrarProyecto extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel1)
+                .addComponent(lbId)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                    .addComponent(btBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                    .addComponent(txtId))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -60,24 +71,37 @@ public class BorrarProyecto extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbId))
                 .addGap(33, 33, 33)
-                .addComponent(jButton1)
+                .addComponent(btBorrar)
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtIdActionPerformed
+
+    private void btBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBorrarActionPerformed
+        try {
+            // TODO add your handling code here:
+            Proyecto proyecto= new Proyecto();
+            proyecto.setId(Integer.parseInt(txtId.getText()));
+            QATracker.proyectoBus.borrar(proyecto);
+            JOptionPane.showMessageDialog(rootPane, "Se ha borrado el proyecto.", "Exito", JOptionPane.PLAIN_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(BorrarProyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_btBorrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton btBorrar;
+    private javax.swing.JLabel lbId;
+    private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }

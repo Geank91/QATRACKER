@@ -8,6 +8,7 @@ package QATracker.business;
 
 import QATracker.data.ProyectoDAO;
 import QATracker.domain.Proyecto;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -16,15 +17,15 @@ import java.sql.SQLException;
  */
 public class ProyectoBusiness {
     
-    public ProyectoBusiness() {
-    }
+    private ProyectoDAO proyectoDAO;
     
-    ProyectoDAO proyectoDAO = new ProyectoDAO();
-    public ProyectoBusiness(ProyectoDAO ProyectoDAO){
-        this.proyectoDAO = ProyectoDAO;
+    public ProyectoBusiness() {
+        this.proyectoDAO= new ProyectoDAO();
     }
+   
+    
     public void crear(Proyecto proyecto) throws SQLException{
-        if (proyectoDAO.exists(proyecto)) {
+        if (proyectoDAO.exists(proyecto)==false) {
             proyectoDAO.add(proyecto);
         } else {
             throw new SQLException("No se puede crear un nuevo proyecto ya que este proyecto ya existe");
@@ -37,13 +38,24 @@ public class ProyectoBusiness {
             throw new SQLException("No se puede actualizar el proyecto por que no se encuentra en la base de datos");
         }
     }
-    public void imprimir(Proyecto proyecto) throws SQLException{
-        if (proyectoDAO.exists(proyecto)) {
-            proyectoDAO.select(proyecto);
+    
+    public void borrar(Proyecto proyecto) throws SQLException{
+        if (proyectoDAO.exists(proyecto)==true) {
+            proyectoDAO.delete(proyecto);
+        }else{
+            throw new SQLException("No se puede borrar, el proyecto no existe.");
+        }
+    }
+    
+    public ResultSet consultaId(Proyecto proyecto) throws SQLException{
+        if (proyectoDAO.exists(proyecto)==true) {
+            return proyectoDAO.consultaId(proyecto);
         } else {
             throw new SQLException("No se puede imprimir el proyecto por que este no existe en la base de datos");
         }
     }
     
-    
+    public ResultSet consulta() throws SQLException{
+        return proyectoDAO.consultaGeneral();
+    }
 }

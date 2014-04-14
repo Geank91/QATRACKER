@@ -6,7 +6,13 @@
 
 package QATracker.view;
 
+import QATracker.domain.Proyecto;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,7 +46,7 @@ public class ActualizarProyecto extends javax.swing.JInternalFrame {
         txtDescripcion = new javax.swing.JTextField();
         txtFechaInicio = new javax.swing.JTextField();
         txtFehaFinal = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btActualizar = new javax.swing.JButton();
         comboEstado = new javax.swing.JComboBox();
 
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -71,8 +77,13 @@ public class ActualizarProyecto extends javax.swing.JInternalFrame {
         getContentPane().add(txtFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 257, 340, -1));
         getContentPane().add(txtFehaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 350, -1));
 
-        jButton1.setText("Actualizar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 140, 50));
+        btActualizar.setText("Actualizar");
+        btActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btActualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 140, 50));
 
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Entregado", "2. Pendiente", "3. Reprocesando" }));
         comboEstado.addActionListener(new java.awt.event.ActionListener() {
@@ -89,10 +100,27 @@ public class ActualizarProyecto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstadoActionPerformed
 
+    private void btActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizarActionPerformed
+        try {
+            // TODO add your handling code here:
+            Proyecto proyecto= new Proyecto();
+            proyecto.setDescripcionProyecto(txtDescripcion.getText());
+            proyecto.setId(Integer.parseInt(txtIdProyecto.getText()));
+            proyecto.setEstadoProyecto(comboEstado.getSelectedIndex()+1);
+            proyecto.setFechafinal(Date.valueOf(txtFehaFinal.getText()));
+            proyecto.setFechainicio(Date.valueOf(txtFechaInicio.getText()));
+            QATracker.proyectoBus.actualizar(proyecto);
+            JOptionPane.showMessageDialog(rootPane, "El proyecto se ha actualizado.", "Exito!", JOptionPane.PLAIN_MESSAGE);
+        } catch (SQLException ex) {
+            Logger.getLogger(ActualizarProyecto.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_btActualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btActualizar;
     private javax.swing.JComboBox comboEstado;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lbDecripcion;
     private javax.swing.JLabel lbEstado;
     private javax.swing.JLabel lbFechaFinal;

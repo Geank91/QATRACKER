@@ -18,13 +18,11 @@ public class Issue {
     private String descripcionIssue;
     private int idTarea;
     private int estadoIssue;
-    private ArrayList<Issue> iss;
 
     public Issue() {
     }
 
-    public Issue(int idIssue, String descripcionIssue, int idTarea, int estadoIssue) {
-        this.idIssue = idIssue;
+    public Issue(String descripcionIssue, int idTarea, int estadoIssue){
         this.descripcionIssue = descripcionIssue;
         this.idTarea = idTarea;
         this.estadoIssue = estadoIssue;
@@ -62,14 +60,4 @@ public class Issue {
         this.estadoIssue = estadoIssue;
     }
 
-    public ArrayList<Issue> getIss() {
-        return iss;
-    }
-
-    public void setIss(ArrayList<Issue> iss) {
-        this.iss = iss;
-    }
-    
-    
-    
 }

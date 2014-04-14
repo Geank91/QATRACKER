@@ -6,6 +6,12 @@
 
 package QATracker.view;
 
+import QATracker.domain.Tarea;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Michelle
@@ -37,8 +43,6 @@ public class CrearTarea extends javax.swing.JInternalFrame {
         btCrear = new javax.swing.JButton();
         lbIdProyecto = new javax.swing.JLabel();
         comboEstado = new javax.swing.JComboBox();
-        lbNombre = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
 
         txtIdUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +60,11 @@ public class CrearTarea extends javax.swing.JInternalFrame {
         lbIdUsuario.setText("Id Usuario:");
 
         btCrear.setText("Crear");
+        btCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCrearActionPerformed(evt);
+            }
+        });
 
         lbIdProyecto.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
         lbIdProyecto.setText("Id Proyecto:");
@@ -66,9 +75,6 @@ public class CrearTarea extends javax.swing.JInternalFrame {
                 comboEstadoActionPerformed(evt);
             }
         });
-
-        lbNombre.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbNombre.setText("Nombre:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,26 +102,15 @@ public class CrearTarea extends javax.swing.JInternalFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(txtIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbDescripcion)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(15, 15, 15)
-                                                .addComponent(lbNombre)))
+                                        .addComponent(lbDescripcion)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                                            .addComponent(txtNombre))))))
-                        .addGap(0, 105, Short.MAX_VALUE)))
-                .addContainerGap())
+                                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(105, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbDescripcion)
                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -133,7 +128,7 @@ public class CrearTarea extends javax.swing.JInternalFrame {
                     .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -147,6 +142,22 @@ public class CrearTarea extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstadoActionPerformed
 
+    private void btCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearActionPerformed
+        try {
+            // TODO add your handling code here:
+            Tarea tarea= new Tarea();
+            tarea.setDescripcionTarea(txtDescripcion.getText());
+            tarea.setEstadoTarea(comboEstado.getSelectedIndex()+1);
+            tarea.setIdProyecto(Integer.parseInt(txtIdProyecto.getText()));
+            tarea.setIdUsuario(Integer.parseInt(txtIdUsuario.getText()));
+            QATracker.tareaBus.crear(tarea);
+            JOptionPane.showMessageDialog(rootPane, "La tarea ha sido agregada.", "Exito", JOptionPane.OK_OPTION);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_btCrearActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCrear;
@@ -155,10 +166,8 @@ public class CrearTarea extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lbEstado;
     private javax.swing.JLabel lbIdProyecto;
     private javax.swing.JLabel lbIdUsuario;
-    private javax.swing.JLabel lbNombre;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtIdProyecto;
     private javax.swing.JTextField txtIdUsuario;
-    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

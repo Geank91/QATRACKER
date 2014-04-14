@@ -8,6 +8,7 @@ package QATracker.business;
 
 import QATracker.data.IssueDAO;
 import QATracker.domain.Issue;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -16,15 +17,14 @@ import java.sql.SQLException;
  */
 public class IssueBusiness {
     
-    public IssueBusiness() {
-    }
+    private IssueDAO issueDAO;
     
-    IssueDAO issueDAO = new IssueDAO();
-    public IssueBusiness(IssueDAO IssueDAO){
-        this.issueDAO = IssueDAO;
+    public IssueBusiness() {
+        this.issueDAO = new IssueDAO();
     }
+     
     public void crear(Issue issue) throws SQLException{
-        if (issueDAO.exists(issue)) {
+        if (issueDAO.exists(issue)==false) {
             issueDAO.add(issue);
         } else {
             throw new SQLException("No se puede crear un nuevo issue ya que este issue ya existe");
@@ -37,9 +37,14 @@ public class IssueBusiness {
             throw new SQLException("No se puede actualizar el issue por que no se encuentra en la base de datos");
         }
     }
-    public void imprimir(Issue issue) throws SQLException{
+    
+    public ResultSet consultaTarea(Issue issue) throws SQLException{
+        return issueDAO.consultaTarea(issue);
+    }
+    
+    public ResultSet consultaId(Issue issue) throws SQLException{
         if (issueDAO.exists(issue)) {
-            issueDAO.select(issue);
+            return issueDAO.consultaId(issue);
         } else {
             throw new SQLException("No se puede imprimir el issue por que este no existe en la base de datos");
         }

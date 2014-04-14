@@ -6,6 +6,13 @@
 
 package QATracker.view;
 
+import QATracker.domain.Proyecto;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Michelle
@@ -53,6 +60,11 @@ public class CrearProyecto extends javax.swing.JInternalFrame {
         lbFechaFinal.setText("Fecha Final:");
 
         btCrear.setText("Crear");
+        btCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCrearActionPerformed(evt);
+            }
+        });
 
         comboEstado9.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Entregado", "2. Pendiente", "3. Reprocesando" }));
         comboEstado9.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +131,22 @@ public class CrearProyecto extends javax.swing.JInternalFrame {
     private void comboEstado9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstado9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstado9ActionPerformed
+
+    private void btCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearActionPerformed
+        try {
+            // TODO add your handling code here:
+            Proyecto proyecto= new Proyecto();
+            proyecto.setDescripcionProyecto(txtDescripcion.getText());
+            proyecto.setEstadoProyecto(comboEstado9.getSelectedIndex()+1);
+            proyecto.setFechafinal(Date.valueOf(txtFechaFinal.getText()));
+            proyecto.setFechainicio(Date.valueOf(txtFechaInicio.getText()));
+            QATracker.proyectoBus.crear(proyecto);
+            JOptionPane.showMessageDialog(rootPane, "El proyecto ha sido agregado", "Exito", JOptionPane.OK_OPTION);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        this.setVisible(false);
+    }//GEN-LAST:event_btCrearActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
