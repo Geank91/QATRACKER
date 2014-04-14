@@ -122,11 +122,16 @@ public class LogIn extends javax.swing.JInternalFrame {
             QATracker.usuarioBus.login(usuario);
             QATracker.usuarioBus.setUsuarioActual(usuario);
             JOptionPane.showMessageDialog(rootPane, "Bienvenido usuario " + usuario.getDescripcionUsuario(), "Inicio", JOptionPane.PLAIN_MESSAGE);
+            menuSesion.setVisible(true);
             menuSesion.setText("Usuario conectado: "+usuario.getDescripcionUsuario() + ". Puesto: " + usuario.getPuesto() + ". ");
+            this.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Credenciales inválidas favor intentar nuevamente", "Inicio", JOptionPane.ERROR_MESSAGE);
+            menuSesion.setVisible(false);
+            this.setVisible(true);
         }
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_btLogInActionPerformed
 
     public JTextField getTxtUserName() {

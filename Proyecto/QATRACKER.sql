@@ -29,14 +29,14 @@ DROP TABLE IF EXISTS `usuario`;
 
 CREATE TABLE `qatracker`.`usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
-  `NombreUsuario` VARCHAR(45) NOT NULL,
-  `Clave` VARCHAR(45) NOT NULL,
-  `EstadoUsuario` INT NOT NULL,
-  `Puesto` VARCHAR(45) NOT NULL,
+  `nombreUsuario` VARCHAR(45) NOT NULL,
+  `clave` VARCHAR(45) NOT NULL,
+  `estadoUsuario` INT NOT NULL,
+  `puesto` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idUsuario`),
   UNIQUE INDEX `idUsuario_UNIQUE` (`idUsuario` ASC),
-  UNIQUE INDEX `NombreUsuario_UNIQUE` (`NombreUsuario` ASC),
-  UNIQUE INDEX `Clave_UNIQUE` (`Clave` ASC));
+  UNIQUE INDEX `nombreUsuario_UNIQUE` (`nombreUsuario` ASC),
+  UNIQUE INDEX `clave_UNIQUE` (`Clave` ASC));
 
 --
 -- Table structure for table `proyecto`
@@ -111,9 +111,15 @@ CREATE TABLE `qatracker`.`issue` (
 --	
 	
 INSERT INTO `qatracker`.`usuario` 
-(`NombreUsuario`, `Clave`, `EstadoUsuario`, `Puesto`)
+(`nombreUsuario`, `clave`, `estadoUsuario`, `puesto`)
 VALUES
-('admin', 'admin', 1, 'Administrador');	
+('admin', 'admin', 1, 'Administrador Experto');	
+
+INSERT INTO `qatracker`.`usuario` 
+(`nombreUsuario`, `clave`, `estadoUsuario`, `puesto`)
+VALUES
+('admin2', 'admin2', 1, 'Administrador Junior');	
+
 
 --
 -- Insert project Administracion
@@ -123,6 +129,12 @@ INSERT INTO `qatracker`.`proyecto`
 (`descripcionproy`, `estadoproy`, `fechainicio`, `fechafinal`)
 VALUES
 ('Administracion', 1, '2014-01-01', '2099-12-31');
+
+INSERT INTO `qatracker`.`proyecto`
+(`descripcionproy`, `estadoproy`, `fechainicio`, `fechafinal`)
+VALUES
+('Pruebas', 1, '2014-01-01', '2099-12-31');
+
 
 --
 -- Insert task Crear usuarios
