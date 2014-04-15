@@ -185,7 +185,7 @@ public class CrearProyecto extends javax.swing.JInternalFrame {
             
             proyecto.setFechafinal(sqlDateFinal);
             QATracker.proyectoBus.crear(proyecto);
-            JOptionPane.showMessageDialog(rootPane, "El proyecto ha sido agregado", "Exito", JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(rootPane, "El proyecto ha sido agregado", "Exito", JOptionPane.PLAIN_MESSAGE);
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
