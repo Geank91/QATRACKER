@@ -9,6 +9,7 @@ package QATracker.view;
 import QATracker.business.UsuarioBusiness;
 import QATracker.domain.Usuario;
 import static QATracker.view.QATracker.menuSesion;
+import static QATracker.view.QATracker.menuItemSettings;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,23 +41,16 @@ public class LogIn extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         txtUserName = new javax.swing.JTextField();
-        lbUserName = new javax.swing.JLabel();
-        lbPassword = new javax.swing.JLabel();
-        btLogIn = new javax.swing.JButton();
         passPassword = new javax.swing.JPasswordField();
+        buttonTask1 = new org.edisoncor.gui.button.ButtonTask();
+        labelRound1 = new org.edisoncor.gui.label.LabelRound();
+        labelRound2 = new org.edisoncor.gui.label.LabelRound();
 
-        lbUserName.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbUserName.setForeground(new java.awt.Color(0, 51, 204));
-        lbUserName.setText("UserName:");
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        lbPassword.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbPassword.setForeground(new java.awt.Color(0, 51, 255));
-        lbPassword.setText("Password:");
-
-        btLogIn.setText("Log In");
-        btLogIn.addActionListener(new java.awt.event.ActionListener() {
+        txtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btLogInActionPerformed(evt);
+                txtUserNameActionPerformed(evt);
             }
         });
 
@@ -66,43 +60,54 @@ public class LogIn extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonTask1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397545848_Manager.png"))); // NOI18N
+        buttonTask1.setText("Log In");
+        buttonTask1.setDescription(" ");
+        buttonTask1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonTask1ActionPerformed(evt);
+            }
+        });
+
+        labelRound1.setBackground(new java.awt.Color(0, 0, 0));
+        labelRound1.setText("UserName");
+
+        labelRound2.setBackground(new java.awt.Color(0, 0, 0));
+        labelRound2.setText("Password");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbPassword)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)))
+                    .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                     .addComponent(passPassword))
-                .addGap(0, 32, Short.MAX_VALUE)
-                .addComponent(btLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(18, 18, 18)
+                .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
+                            .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbPassword)
-                            .addComponent(passPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(passPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(btLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(64, Short.MAX_VALUE))
+                        .addGap(23, 23, 23)
+                        .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
@@ -112,7 +117,7 @@ public class LogIn extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passPasswordActionPerformed
 
-    private void btLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLogInActionPerformed
+    private void buttonTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask1ActionPerformed
         try {
             // TODO add your handling code here:
             Usuario usuario= new Usuario();
@@ -124,15 +129,20 @@ public class LogIn extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(rootPane, "Bienvenido usuario " + usuario.getDescripcionUsuario(), "Inicio", JOptionPane.PLAIN_MESSAGE);
             menuSesion.setVisible(true);
             menuSesion.setText("Usuario conectado: "+usuario.getDescripcionUsuario() + ". Puesto: " + usuario.getPuesto() + ". ");
+            menuItemSettings.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(LogIn.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(rootPane, "Credenciales inválidas favor intentar nuevamente", "Inicio", JOptionPane.ERROR_MESSAGE);
             menuSesion.setVisible(false);
+            menuItemSettings.setVisible(false);
             this.setVisible(true);
         }
-        //this.setVisible(false);
-    }//GEN-LAST:event_btLogInActionPerformed
+    }//GEN-LAST:event_buttonTask1ActionPerformed
+
+    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUserNameActionPerformed
 
     public JTextField getTxtUserName() {
         return txtUserName;
@@ -140,9 +150,9 @@ public class LogIn extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btLogIn;
-    private javax.swing.JLabel lbPassword;
-    private javax.swing.JLabel lbUserName;
+    private org.edisoncor.gui.button.ButtonTask buttonTask1;
+    private org.edisoncor.gui.label.LabelRound labelRound1;
+    private org.edisoncor.gui.label.LabelRound labelRound2;
     private javax.swing.JPasswordField passPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables

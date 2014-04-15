@@ -34,22 +34,14 @@ public class CrearIssue extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbFechaInicio = new javax.swing.JLabel();
-        lbDescripcion = new javax.swing.JLabel();
-        lbEstado = new javax.swing.JLabel();
         comboEstado10 = new javax.swing.JComboBox();
         txtIdTarea = new javax.swing.JTextField();
-        btCrear = new javax.swing.JButton();
         txtDescripcion = new javax.swing.JTextField();
-
-        lbFechaInicio.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbFechaInicio.setText("Id de la Tarea:");
-
-        lbDescripcion.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbDescripcion.setText("Descripcion:");
-
-        lbEstado.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbEstado.setText("Estado:");
+        labelTask1 = new org.edisoncor.gui.label.LabelTask();
+        labelRound1 = new org.edisoncor.gui.label.LabelRound();
+        labelRound2 = new org.edisoncor.gui.label.LabelRound();
+        labelRound3 = new org.edisoncor.gui.label.LabelRound();
+        buttonColoredAction1 = new org.edisoncor.gui.button.ButtonColoredAction();
 
         comboEstado10.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Entregado", "2. Pendiente", "3. Reprocesando" }));
         comboEstado10.addActionListener(new java.awt.event.ActionListener() {
@@ -58,10 +50,24 @@ public class CrearIssue extends javax.swing.JInternalFrame {
             }
         });
 
-        btCrear.setText("Crear");
-        btCrear.addActionListener(new java.awt.event.ActionListener() {
+        labelTask1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397533314_plus_add_blue.png"))); // NOI18N
+        labelTask1.setText("Crear Issue");
+        labelTask1.setDescription(" ");
+
+        labelRound1.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound1.setText("Descripcion");
+
+        labelRound2.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound2.setText("Estado");
+
+        labelRound3.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound3.setText("Id de la Tarea");
+
+        buttonColoredAction1.setBackground(new java.awt.Color(0, 255, 204));
+        buttonColoredAction1.setText("Crear");
+        buttonColoredAction1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCrearActionPerformed(evt);
+                buttonColoredAction1ActionPerformed(evt);
             }
         });
 
@@ -70,42 +76,54 @@ public class CrearIssue extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lbDescripcion)
-                            .addGap(43, 43, 43)
-                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lbFechaInicio)
-                            .addGap(36, 36, 36)
-                            .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbEstado)
-                        .addGap(78, 78, 78)
-                        .addComponent(comboEstado10, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(labelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboEstado10, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(147, 147, 147))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(20, 20, 20)
+                .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboEstado10))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbDescripcion)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbEstado)
-                    .addComponent(comboEstado10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbFechaInicio)
+                    .addComponent(labelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,7 +133,7 @@ public class CrearIssue extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstado10ActionPerformed
 
-    private void btCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearActionPerformed
+    private void buttonColoredAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonColoredAction1ActionPerformed
         try {
             // TODO add your handling code here:
             Issue issue= new Issue();
@@ -128,15 +146,16 @@ public class CrearIssue extends javax.swing.JInternalFrame {
             System.out.println(ex.getMessage());
         }
         this.setVisible(false);
-    }//GEN-LAST:event_btCrearActionPerformed
+    }//GEN-LAST:event_buttonColoredAction1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCrear;
+    private org.edisoncor.gui.button.ButtonColoredAction buttonColoredAction1;
     private javax.swing.JComboBox comboEstado10;
-    private javax.swing.JLabel lbDescripcion;
-    private javax.swing.JLabel lbEstado;
-    private javax.swing.JLabel lbFechaInicio;
+    private org.edisoncor.gui.label.LabelRound labelRound1;
+    private org.edisoncor.gui.label.LabelRound labelRound2;
+    private org.edisoncor.gui.label.LabelRound labelRound3;
+    private org.edisoncor.gui.label.LabelTask labelTask1;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtIdTarea;
     // End of variables declaration//GEN-END:variables

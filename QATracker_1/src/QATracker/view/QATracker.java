@@ -37,7 +37,7 @@ public class QATracker extends javax.swing.JFrame {
         this.tareaBus= new TareaBusiness();
         this.issueBus= new IssueBusiness();
         menuSesion.setVisible(false);
-        
+        menuItemSettings.setVisible(false);
     }
     
     
@@ -57,6 +57,9 @@ public class QATracker extends javax.swing.JFrame {
         menuBar1 = new javax.swing.JMenuBar();
         menuStart = new javax.swing.JMenu();
         menuItemLogInInicio = new javax.swing.JMenuItem();
+        menuUser = new javax.swing.JMenu();
+        menuItemNewUser = new javax.swing.JMenuItem();
+        menuItemSettings = new javax.swing.JMenuItem();
         menuItemSignOutInicio = new javax.swing.JMenuItem();
         menuItemExit = new javax.swing.JMenuItem();
         menuProyectos = new javax.swing.JMenu();
@@ -76,7 +79,6 @@ public class QATracker extends javax.swing.JFrame {
         menuMantenimientoIssues = new javax.swing.JMenu();
         menuItemActualizarMantenimientoIssues = new javax.swing.JMenuItem();
         menuItemCrearMantenimientoIssues = new javax.swing.JMenuItem();
-        menuUsuario = new javax.swing.JMenu();
         menuSesion = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,7 +87,7 @@ public class QATracker extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1000, Short.MAX_VALUE)
+            .addGap(0, 1020, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,6 +96,7 @@ public class QATracker extends javax.swing.JFrame {
 
         menuStart.setText("Start");
 
+        menuItemLogInInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397550291_secure-server-px-png.png"))); // NOI18N
         menuItemLogInInicio.setText("Log in");
         menuItemLogInInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +105,30 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuStart.add(menuItemLogInInicio);
 
+        menuUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397545848_Manager.png"))); // NOI18N
+        menuUser.setText("User");
+
+        menuItemNewUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397533314_plus_add_blue.png"))); // NOI18N
+        menuItemNewUser.setText("New User");
+        menuItemNewUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemNewUserActionPerformed(evt);
+            }
+        });
+        menuUser.add(menuItemNewUser);
+
+        menuItemSettings.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397550416_maintenance.png"))); // NOI18N
+        menuItemSettings.setText("Settings");
+        menuItemSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemSettingsActionPerformed(evt);
+            }
+        });
+        menuUser.add(menuItemSettings);
+
+        menuStart.add(menuUser);
+
+        menuItemSignOutInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397550521_Log Out.png"))); // NOI18N
         menuItemSignOutInicio.setText("Sign out");
         menuItemSignOutInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +137,7 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuStart.add(menuItemSignOutInicio);
 
+        menuItemExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397550566_exit.png"))); // NOI18N
         menuItemExit.setText("Exit");
         menuItemExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +150,7 @@ public class QATracker extends javax.swing.JFrame {
 
         menuProyectos.setText("Proyectos");
 
+        menuItemConsultaProyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397543922_xmag.png"))); // NOI18N
         menuItemConsultaProyectos.setText("Consulta");
         menuItemConsultaProyectos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,8 +159,10 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuProyectos.add(menuItemConsultaProyectos);
 
+        menuMantenimientoProyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397550416_maintenance.png"))); // NOI18N
         menuMantenimientoProyectos.setText("Mantenimiento");
 
+        menuItemActualizrMantenimientoProyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397534265_earth_internet_reload.png"))); // NOI18N
         menuItemActualizrMantenimientoProyectos.setText("Actualizar");
         menuItemActualizrMantenimientoProyectos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +171,7 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuMantenimientoProyectos.add(menuItemActualizrMantenimientoProyectos);
 
+        menuItemBorrarMantenimientoProyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397535117_minus_remove_green.png"))); // NOI18N
         menuItemBorrarMantenimientoProyectos.setText("Borrar");
         menuItemBorrarMantenimientoProyectos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +180,7 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuMantenimientoProyectos.add(menuItemBorrarMantenimientoProyectos);
 
+        menuItemCrearMantenimientoProyectos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397533314_plus_add_blue.png"))); // NOI18N
         menuItemCrearMantenimientoProyectos.setText("Crear");
         menuItemCrearMantenimientoProyectos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,6 +195,7 @@ public class QATracker extends javax.swing.JFrame {
 
         menuTareas.setText("Tareas");
 
+        menuItemConsultaTareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397543922_xmag.png"))); // NOI18N
         menuItemConsultaTareas.setText("Consulta");
         menuItemConsultaTareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,8 +204,10 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuTareas.add(menuItemConsultaTareas);
 
+        menuMantenimientoTareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397550416_maintenance.png"))); // NOI18N
         menuMantenimientoTareas.setText("Mantenimiento");
 
+        menuItemActualizarMantenimientoTareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397534265_earth_internet_reload.png"))); // NOI18N
         menuItemActualizarMantenimientoTareas.setText("Actualizar");
         menuItemActualizarMantenimientoTareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,6 +216,7 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuMantenimientoTareas.add(menuItemActualizarMantenimientoTareas);
 
+        menuItemCrearMantenimientoTareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397533314_plus_add_blue.png"))); // NOI18N
         menuItemCrearMantenimientoTareas.setText("Crear");
         menuItemCrearMantenimientoTareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +225,7 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuMantenimientoTareas.add(menuItemCrearMantenimientoTareas);
 
+        menuItemRenombrarMantenimientoTareas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397539638_interact.png"))); // NOI18N
         menuItemRenombrarMantenimientoTareas.setText("Renombrar");
         menuItemRenombrarMantenimientoTareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +240,7 @@ public class QATracker extends javax.swing.JFrame {
 
         menuIssues.setText("Issues");
 
+        menuItemConsultaIssues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397543922_xmag.png"))); // NOI18N
         menuItemConsultaIssues.setText("Consulta");
         menuItemConsultaIssues.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,8 +249,10 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuIssues.add(menuItemConsultaIssues);
 
+        menuMantenimientoIssues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397550416_maintenance.png"))); // NOI18N
         menuMantenimientoIssues.setText("Mantenimiento");
 
+        menuItemActualizarMantenimientoIssues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397534265_earth_internet_reload.png"))); // NOI18N
         menuItemActualizarMantenimientoIssues.setText("Actualizar");
         menuItemActualizarMantenimientoIssues.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +261,7 @@ public class QATracker extends javax.swing.JFrame {
         });
         menuMantenimientoIssues.add(menuItemActualizarMantenimientoIssues);
 
+        menuItemCrearMantenimientoIssues.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397533314_plus_add_blue.png"))); // NOI18N
         menuItemCrearMantenimientoIssues.setText("Crear");
         menuItemCrearMantenimientoIssues.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -231,9 +273,6 @@ public class QATracker extends javax.swing.JFrame {
         menuIssues.add(menuMantenimientoIssues);
 
         menuBar1.add(menuIssues);
-
-        menuUsuario.setText("Usuarios");
-        menuBar1.add(menuUsuario);
 
         menuSesion.setBackground(new java.awt.Color(0, 255, 204));
         menuSesion.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -247,7 +286,7 @@ public class QATracker extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,8 +311,6 @@ public class QATracker extends javax.swing.JFrame {
                 login.setMaximizable(true);
                 login.setResizable(true);
                 jDesktopPane1.add(login);
-                menuSesion.setVisible(true);
-                menuSesion.setText("Iniciando sesión");
             }else{
                 JOptionPane.showMessageDialog(rootPane, "Ya hay una sesion activa.", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -433,6 +470,7 @@ public class QATracker extends javax.swing.JFrame {
             if (usuarioBus.getUsuarioActual()!=null) {
                usuarioBus.signOut();
                menuSesion.setVisible(false);
+               menuItemSettings.setVisible(false);
                JOptionPane.showMessageDialog(rootPane, "Se ha cerrado sesion.", "Adios!", JOptionPane.PLAIN_MESSAGE);
             }else{
                 JOptionPane.showMessageDialog(rootPane, "No hay niguna sesion activa.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -477,6 +515,30 @@ public class QATracker extends javax.swing.JFrame {
         jDesktopPane1.add(consulta);
     }//GEN-LAST:event_menuItemConsultaIssuesActionPerformed
 
+    private void menuItemSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemSettingsActionPerformed
+        try {
+            // TODO add your handling code here:
+            Settings settings= new Settings();
+            settings.setVisible(true);
+            settings.setClosable(true);
+            settings.setMaximizable(true);
+            settings.setTitle("Settings");
+            settings.setResizable(true);
+            jDesktopPane1.add(settings);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_menuItemSettingsActionPerformed
+
+    private void menuItemNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemNewUserActionPerformed
+        // TODO add your handling code here:
+        CrearUsuario crear= new CrearUsuario();
+        crear.setClosable(true);
+        crear.setVisible(true);
+        crear.setTitle("Nuevo Usuario");
+        jDesktopPane1.add(crear);
+    }//GEN-LAST:event_menuItemNewUserActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -517,7 +579,7 @@ public class QATracker extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    public static javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar menuBar1;
     private javax.swing.JMenu menuIssues;
     private javax.swing.JMenuItem menuItemActualizarMantenimientoIssues;
@@ -532,7 +594,9 @@ public class QATracker extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemCrearMantenimientoTareas;
     private javax.swing.JMenuItem menuItemExit;
     private javax.swing.JMenuItem menuItemLogInInicio;
+    private javax.swing.JMenuItem menuItemNewUser;
     private javax.swing.JMenuItem menuItemRenombrarMantenimientoTareas;
+    public static javax.swing.JMenuItem menuItemSettings;
     private javax.swing.JMenuItem menuItemSignOutInicio;
     private javax.swing.JMenu menuMantenimientoIssues;
     private javax.swing.JMenu menuMantenimientoProyectos;
@@ -541,6 +605,6 @@ public class QATracker extends javax.swing.JFrame {
     public static javax.swing.JMenu menuSesion;
     private javax.swing.JMenu menuStart;
     private javax.swing.JMenu menuTareas;
-    private javax.swing.JMenu menuUsuario;
+    private javax.swing.JMenu menuUser;
     // End of variables declaration//GEN-END:variables
 }

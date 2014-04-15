@@ -34,11 +34,10 @@ public class BorrarProyecto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbId = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
-        btBorrar = new javax.swing.JButton();
-
-        lbId.setText("Id del Proyecto:");
+        labelTask1 = new org.edisoncor.gui.label.LabelTask();
+        labelRound1 = new org.edisoncor.gui.label.LabelRound();
+        buttonAction2 = new org.edisoncor.gui.button.ButtonAction();
 
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,10 +45,17 @@ public class BorrarProyecto extends javax.swing.JInternalFrame {
             }
         });
 
-        btBorrar.setText("Borrar");
-        btBorrar.addActionListener(new java.awt.event.ActionListener() {
+        labelTask1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397535117_minus_remove_green.png"))); // NOI18N
+        labelTask1.setText("Borrar Proyecto");
+        labelTask1.setDescription(" ");
+
+        labelRound1.setBackground(new java.awt.Color(0, 204, 0));
+        labelRound1.setText("Id del Proyecto");
+
+        buttonAction2.setText("Borrar");
+        buttonAction2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBorrarActionPerformed(evt);
+                buttonAction2ActionPerformed(evt);
             }
         });
 
@@ -58,24 +64,31 @@ public class BorrarProyecto extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lbId)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                    .addComponent(txtId))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(71, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(buttonAction2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbId))
-                .addGap(33, 33, 33)
-                .addComponent(btBorrar)
-                .addContainerGap(127, Short.MAX_VALUE))
+                    .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(39, 39, 39)
+                .addComponent(buttonAction2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
@@ -85,7 +98,7 @@ public class BorrarProyecto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdActionPerformed
 
-    private void btBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBorrarActionPerformed
+    private void buttonAction2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAction2ActionPerformed
         try {
             // TODO add your handling code here:
             Proyecto proyecto= new Proyecto();
@@ -96,12 +109,13 @@ public class BorrarProyecto extends javax.swing.JInternalFrame {
             Logger.getLogger(BorrarProyecto.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setVisible(false);
-    }//GEN-LAST:event_btBorrarActionPerformed
+    }//GEN-LAST:event_buttonAction2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBorrar;
-    private javax.swing.JLabel lbId;
+    private org.edisoncor.gui.button.ButtonAction buttonAction2;
+    private org.edisoncor.gui.label.LabelRound labelRound1;
+    private org.edisoncor.gui.label.LabelTask labelTask1;
     private javax.swing.JTextField txtId;
     // End of variables declaration//GEN-END:variables
 }

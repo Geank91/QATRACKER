@@ -34,44 +34,44 @@ public class ConsultaTareas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbIdProyecto = new javax.swing.JLabel();
         txtIdProyecto = new javax.swing.JTextField();
-        btBuscar = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
         jTableTareas = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btConsultar = new javax.swing.JButton();
-
-        lbIdProyecto.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbIdProyecto.setForeground(new java.awt.Color(0, 51, 255));
-        lbIdProyecto.setText("Id Proyecto:");
-
-        btBuscar.setForeground(new java.awt.Color(255, 102, 102));
-        btBuscar.setText("Buscar");
-        btBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBuscarActionPerformed(evt);
-            }
-        });
+        buttonTask1 = new org.edisoncor.gui.button.ButtonTask();
+        labelRound1 = new org.edisoncor.gui.label.LabelRound();
+        buttonColoredAction1 = new org.edisoncor.gui.button.ButtonColoredAction();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Descripcion", "Usuario", "Estado", "Proyecto"
             }
         ));
         jTableTareas.setViewportView(jTable1);
 
-        btConsultar.setForeground(new java.awt.Color(0, 51, 255));
-        btConsultar.setText("Consultar");
-        btConsultar.addActionListener(new java.awt.event.ActionListener() {
+        buttonTask1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397543922_xmag.png"))); // NOI18N
+        buttonTask1.setText("Buscar:");
+        buttonTask1.setDescription(" ");
+        buttonTask1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultarActionPerformed(evt);
+                buttonTask1ActionPerformed(evt);
+            }
+        });
+
+        labelRound1.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound1.setText("Id Proyecto:");
+
+        buttonColoredAction1.setBackground(new java.awt.Color(255, 102, 0));
+        buttonColoredAction1.setText("Consultar");
+        buttonColoredAction1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonColoredAction1ActionPerformed(evt);
             }
         });
 
@@ -83,16 +83,16 @@ public class ConsultaTareas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lbIdProyecto)
-                        .addGap(18, 18, 18)
+                        .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(btConsultar))
+                        .addGap(27, 27, 27)
+                        .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jTableTareas, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btBuscar)
+                        .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -100,44 +100,29 @@ public class ConsultaTareas extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIdProyecto)
                     .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btConsultar))
+                    .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTableTareas, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btBuscar)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(58, Short.MAX_VALUE))
+                        .addGap(103, 103, 103)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel model= new DefaultTableModel();
-        this.jTable1.setModel(model);
-        model.setColumnIdentifiers(new Object[]{"Id","Descripcion","Usuario","Estado", "Proyecto"});
-        Tarea tarea= new Tarea();
-        tarea.setIdProyecto(Integer.parseInt(txtIdProyecto.getText()));
-        try{
-        ResultSet res= QATracker.tareaBus.consultaProyecto(tarea);
-            while(res.next()){
-                model.addRow(new Object[]{res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5)});
-            }
-        }catch(SQLException ex){
-            System.out.println(ex.getMessage());
-        }
-    }//GEN-LAST:event_btConsultarActionPerformed
-
-    private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
+    private void buttonTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask1ActionPerformed
         try {
             DefaultTableModel model= new DefaultTableModel();
             this.jTable1.setModel(model);
@@ -151,15 +136,31 @@ public class ConsultaTareas extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    }//GEN-LAST:event_btBuscarActionPerformed
+    }//GEN-LAST:event_buttonTask1ActionPerformed
+
+    private void buttonColoredAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonColoredAction1ActionPerformed
+        DefaultTableModel model= new DefaultTableModel();
+        this.jTable1.setModel(model);
+        model.setColumnIdentifiers(new Object[]{"Id","Descripcion","Usuario","Estado", "Proyecto"});
+        Tarea tarea= new Tarea();
+        tarea.setIdProyecto(Integer.parseInt(txtIdProyecto.getText()));
+        try{
+        ResultSet res= QATracker.tareaBus.consultaProyecto(tarea);
+            while(res.next()){
+                model.addRow(new Object[]{res.getString(1), res.getString(2), res.getString(3), res.getString(4), res.getString(5)});
+            }
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_buttonColoredAction1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBuscar;
-    private javax.swing.JButton btConsultar;
+    private org.edisoncor.gui.button.ButtonColoredAction buttonColoredAction1;
+    private org.edisoncor.gui.button.ButtonTask buttonTask1;
     private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane jTableTareas;
-    private javax.swing.JLabel lbIdProyecto;
+    private org.edisoncor.gui.label.LabelRound labelRound1;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtIdProyecto;
     // End of variables declaration//GEN-END:variables

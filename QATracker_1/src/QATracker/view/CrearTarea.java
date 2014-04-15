@@ -36,13 +36,14 @@ public class CrearTarea extends javax.swing.JInternalFrame {
 
         txtDescripcion = new javax.swing.JTextField();
         txtIdUsuario = new javax.swing.JTextField();
-        lbDescripcion = new javax.swing.JLabel();
         txtIdProyecto = new javax.swing.JTextField();
-        lbEstado = new javax.swing.JLabel();
-        lbIdUsuario = new javax.swing.JLabel();
-        btCrear = new javax.swing.JButton();
-        lbIdProyecto = new javax.swing.JLabel();
         comboEstado = new javax.swing.JComboBox();
+        labelTask1 = new org.edisoncor.gui.label.LabelTask();
+        labelRound1 = new org.edisoncor.gui.label.LabelRound();
+        labelRound2 = new org.edisoncor.gui.label.LabelRound();
+        labelRound3 = new org.edisoncor.gui.label.LabelRound();
+        labelRound4 = new org.edisoncor.gui.label.LabelRound();
+        buttonColoredAction1 = new org.edisoncor.gui.button.ButtonColoredAction();
 
         txtIdUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,29 +51,34 @@ public class CrearTarea extends javax.swing.JInternalFrame {
             }
         });
 
-        lbDescripcion.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbDescripcion.setText("Descripcion:");
-
-        lbEstado.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbEstado.setText("Estado");
-
-        lbIdUsuario.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbIdUsuario.setText("Id Usuario:");
-
-        btCrear.setText("Crear");
-        btCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btCrearActionPerformed(evt);
-            }
-        });
-
-        lbIdProyecto.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbIdProyecto.setText("Id Proyecto:");
-
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Entregado", "2. Pendiente", "3. Reprocesando" }));
         comboEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboEstadoActionPerformed(evt);
+            }
+        });
+
+        labelTask1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397533314_plus_add_blue.png"))); // NOI18N
+        labelTask1.setText("Crear Tarea");
+        labelTask1.setDescription(" ");
+
+        labelRound1.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound1.setText("Descripcion");
+
+        labelRound2.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound2.setText("Id Usuario");
+
+        labelRound3.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound3.setText("Estado");
+
+        labelRound4.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound4.setText("Id Proyecto");
+
+        buttonColoredAction1.setBackground(new java.awt.Color(51, 255, 204));
+        buttonColoredAction1.setText("Crear");
+        buttonColoredAction1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonColoredAction1ActionPerformed(evt);
             }
         });
 
@@ -82,53 +88,63 @@ public class CrearTarea extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lbIdProyecto)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtIdProyecto))
-                            .addComponent(lbEstado, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(lbIdUsuario)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(148, 148, 148))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbDescripcion)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(105, Short.MAX_VALUE))))
+                                        .addComponent(labelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(3, 3, 3))
+                                    .addComponent(labelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboEstado, 0, 204, Short.MAX_VALUE)
+                            .addComponent(txtIdUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIdProyecto))
+                        .addContainerGap(145, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbDescripcion)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIdUsuario)
-                    .addComponent(txtIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbEstado)
-                    .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIdProyecto)
-                    .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
                 .addGap(18, 18, 18)
-                .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -142,7 +158,7 @@ public class CrearTarea extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstadoActionPerformed
 
-    private void btCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearActionPerformed
+    private void buttonColoredAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonColoredAction1ActionPerformed
         try {
             // TODO add your handling code here:
             Tarea tarea= new Tarea();
@@ -156,16 +172,17 @@ public class CrearTarea extends javax.swing.JInternalFrame {
             System.out.println(ex.getMessage());
         }
         this.setVisible(false);
-    }//GEN-LAST:event_btCrearActionPerformed
+    }//GEN-LAST:event_buttonColoredAction1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCrear;
+    private org.edisoncor.gui.button.ButtonColoredAction buttonColoredAction1;
     private javax.swing.JComboBox comboEstado;
-    private javax.swing.JLabel lbDescripcion;
-    private javax.swing.JLabel lbEstado;
-    private javax.swing.JLabel lbIdProyecto;
-    private javax.swing.JLabel lbIdUsuario;
+    private org.edisoncor.gui.label.LabelRound labelRound1;
+    private org.edisoncor.gui.label.LabelRound labelRound2;
+    private org.edisoncor.gui.label.LabelRound labelRound3;
+    private org.edisoncor.gui.label.LabelRound labelRound4;
+    private org.edisoncor.gui.label.LabelTask labelTask1;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtIdProyecto;
     private javax.swing.JTextField txtIdUsuario;

@@ -33,21 +33,13 @@ public class ConsultaIssues extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btConsultar = new javax.swing.JButton();
         jTableIssues = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         txtBuscar = new javax.swing.JTextField();
-        btBuscar = new javax.swing.JButton();
         txtIdTarea = new javax.swing.JTextField();
-        lbIdTarea = new javax.swing.JLabel();
-
-        btConsultar.setForeground(new java.awt.Color(0, 51, 255));
-        btConsultar.setText("Consultar");
-        btConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultarActionPerformed(evt);
-            }
-        });
+        buttonTask1 = new org.edisoncor.gui.button.ButtonTask();
+        buttonColoredAction1 = new org.edisoncor.gui.button.ButtonColoredAction();
+        labelRound1 = new org.edisoncor.gui.label.LabelRound();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,70 +49,78 @@ public class ConsultaIssues extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Id", "Descripcion", "Tarea", "Estado"
             }
         ));
         jTableIssues.setViewportView(jTable1);
 
-        btBuscar.setForeground(new java.awt.Color(255, 102, 102));
-        btBuscar.setText("Buscar");
-        btBuscar.addActionListener(new java.awt.event.ActionListener() {
+        buttonTask1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397543922_xmag.png"))); // NOI18N
+        buttonTask1.setText("Buscar:");
+        buttonTask1.setDescription(" ");
+        buttonTask1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBuscarActionPerformed(evt);
+                buttonTask1ActionPerformed(evt);
             }
         });
 
-        lbIdTarea.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbIdTarea.setForeground(new java.awt.Color(0, 51, 255));
-        lbIdTarea.setText("Id Tarea:");
+        buttonColoredAction1.setBackground(new java.awt.Color(255, 153, 0));
+        buttonColoredAction1.setText("Consultar");
+        buttonColoredAction1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonColoredAction1ActionPerformed(evt);
+            }
+        });
+
+        labelRound1.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound1.setText("Id Tarea:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lbIdTarea)
-                        .addGap(18, 18, 18)
+                        .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(btConsultar))
+                        .addGap(18, 18, 18)
+                        .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jTableIssues, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btBuscar)
+                        .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIdTarea)
                     .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btConsultar))
+                    .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTableIssues, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btBuscar)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(82, 82, 82)
+                        .addComponent(buttonTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
-        // TODO add your handling code here:
+    private void buttonColoredAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonColoredAction1ActionPerformed
         DefaultTableModel model= new DefaultTableModel();
         this.jTable1.setModel(model);
         model.setColumnIdentifiers(new Object[]{"Id","Descripcion","Tarea","Estado"});
@@ -134,9 +134,9 @@ public class ConsultaIssues extends javax.swing.JInternalFrame {
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
         }
-    }//GEN-LAST:event_btConsultarActionPerformed
+    }//GEN-LAST:event_buttonColoredAction1ActionPerformed
 
-    private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
+    private void buttonTask1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonTask1ActionPerformed
         try {
             DefaultTableModel model= new DefaultTableModel();
             this.jTable1.setModel(model);
@@ -150,15 +150,15 @@ public class ConsultaIssues extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    }//GEN-LAST:event_btBuscarActionPerformed
+    }//GEN-LAST:event_buttonTask1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBuscar;
-    private javax.swing.JButton btConsultar;
+    private org.edisoncor.gui.button.ButtonColoredAction buttonColoredAction1;
+    private org.edisoncor.gui.button.ButtonTask buttonTask1;
     private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane jTableIssues;
-    private javax.swing.JLabel lbIdTarea;
+    private org.edisoncor.gui.label.LabelRound labelRound1;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtIdTarea;
     // End of variables declaration//GEN-END:variables

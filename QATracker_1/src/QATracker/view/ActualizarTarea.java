@@ -34,44 +34,22 @@ public class ActualizarTarea extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbIdTarea = new javax.swing.JLabel();
         txtIdTarea = new javax.swing.JTextField();
-        lbDescripcion = new javax.swing.JLabel();
-        lbEstado = new javax.swing.JLabel();
-        lbIdUsuario = new javax.swing.JLabel();
-        lbIdProyecto = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
         txtIdUsuario = new javax.swing.JTextField();
         txtIdProyecto = new javax.swing.JTextField();
-        btActualizar = new javax.swing.JButton();
         comboEstado = new javax.swing.JComboBox();
-
-        lbIdTarea.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbIdTarea.setForeground(new java.awt.Color(0, 102, 255));
-        lbIdTarea.setText("Id de la Tarea:");
-
-        lbDescripcion.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbDescripcion.setText("Descripcion:");
-
-        lbEstado.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbEstado.setText("Estado:");
-
-        lbIdUsuario.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbIdUsuario.setText("Id del Usuario:");
-
-        lbIdProyecto.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbIdProyecto.setText("Id del Proyecto:");
+        labelTask1 = new org.edisoncor.gui.label.LabelTask();
+        labelRound1 = new org.edisoncor.gui.label.LabelRound();
+        labelRound2 = new org.edisoncor.gui.label.LabelRound();
+        labelRound3 = new org.edisoncor.gui.label.LabelRound();
+        labelRound4 = new org.edisoncor.gui.label.LabelRound();
+        labelRound5 = new org.edisoncor.gui.label.LabelRound();
+        buttonColoredAction1 = new org.edisoncor.gui.button.ButtonColoredAction();
 
         txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescripcionActionPerformed(evt);
-            }
-        });
-
-        btActualizar.setText("Actualizar");
-        btActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btActualizarActionPerformed(evt);
             }
         });
 
@@ -82,70 +60,90 @@ public class ActualizarTarea extends javax.swing.JInternalFrame {
             }
         });
 
+        labelTask1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397534265_earth_internet_reload.png"))); // NOI18N
+        labelTask1.setText("Actualizar Tarea");
+        labelTask1.setDescription(" ");
+
+        labelRound1.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound1.setText("Id de la Tarea");
+
+        labelRound2.setBackground(new java.awt.Color(255, 153, 51));
+        labelRound2.setText("Id del Usuario");
+
+        labelRound3.setBackground(new java.awt.Color(255, 153, 0));
+        labelRound3.setText("Estado");
+
+        labelRound4.setBackground(new java.awt.Color(255, 153, 51));
+        labelRound4.setText("Descripcion");
+
+        labelRound5.setBackground(new java.awt.Color(255, 153, 0));
+        labelRound5.setText("Id del Proyecto");
+
+        buttonColoredAction1.setBackground(new java.awt.Color(51, 153, 255));
+        buttonColoredAction1.setText("Actualizar");
+        buttonColoredAction1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonColoredAction1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbDescripcion)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbIdTarea)
-                                    .addGap(72, 72, 72)
-                                    .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbIdUsuario)
-                                .addGap(47, 47, 47)
-                                .addComponent(txtIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(103, 103, 103))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(labelRound5, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                    .addComponent(labelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelRound2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelRound4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(53, 53, 53)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(222, 222, 222)
-                                .addComponent(btActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbEstado)
-                                    .addComponent(lbIdProyecto))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())))
+                                .addGap(28, 28, 28)
+                                .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbIdTarea))
-                .addGap(47, 47, 47)
+                    .addComponent(txtIdTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbDescripcion))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbIdUsuario)
-                    .addComponent(txtIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(58, 58, 58)
+                    .addComponent(labelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtIdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbEstado))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addComponent(labelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbIdProyecto))
-                .addGap(35, 35, 35)
-                .addComponent(btActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(123, 123, 123))
+                    .addComponent(labelRound5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addComponent(buttonColoredAction1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         pack();
@@ -159,7 +157,7 @@ public class ActualizarTarea extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDescripcionActionPerformed
 
-    private void btActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizarActionPerformed
+    private void buttonColoredAction1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonColoredAction1ActionPerformed
         try {
             // TODO add your handling code here:
             Tarea tarea= new Tarea();
@@ -174,17 +172,18 @@ public class ActualizarTarea extends javax.swing.JInternalFrame {
             System.out.println(ex.getMessage());
         }
         this.setVisible(false);
-    }//GEN-LAST:event_btActualizarActionPerformed
+    }//GEN-LAST:event_buttonColoredAction1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btActualizar;
+    private org.edisoncor.gui.button.ButtonColoredAction buttonColoredAction1;
     private javax.swing.JComboBox comboEstado;
-    private javax.swing.JLabel lbDescripcion;
-    private javax.swing.JLabel lbEstado;
-    private javax.swing.JLabel lbIdProyecto;
-    private javax.swing.JLabel lbIdTarea;
-    private javax.swing.JLabel lbIdUsuario;
+    private org.edisoncor.gui.label.LabelRound labelRound1;
+    private org.edisoncor.gui.label.LabelRound labelRound2;
+    private org.edisoncor.gui.label.LabelRound labelRound3;
+    private org.edisoncor.gui.label.LabelRound labelRound4;
+    private org.edisoncor.gui.label.LabelRound labelRound5;
+    private org.edisoncor.gui.label.LabelTask labelTask1;
     private javax.swing.JTextField txtDescripcion;
     private javax.swing.JTextField txtIdProyecto;
     private javax.swing.JTextField txtIdTarea;

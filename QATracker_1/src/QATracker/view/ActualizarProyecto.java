@@ -9,6 +9,9 @@ package QATracker.view;
 import QATracker.domain.Proyecto;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
@@ -25,7 +28,9 @@ public class ActualizarProyecto extends javax.swing.JInternalFrame {
      */
     public ActualizarProyecto() {
         initComponents();
-        
+        DateFormat formats= new SimpleDateFormat("yyyy/MM/dd");
+        jxFechaInicio.setFormats(formats);
+        jxFechaFinal.setFormats(formats);
     }
 
     /**
@@ -37,53 +42,20 @@ public class ActualizarProyecto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbIdProyecto = new javax.swing.JLabel();
         txtIdProyecto = new javax.swing.JTextField();
-        lbDecripcion = new javax.swing.JLabel();
-        lbEstado = new javax.swing.JLabel();
-        lbFechaInicio = new javax.swing.JLabel();
-        lbFechaFinal = new javax.swing.JLabel();
         txtDescripcion = new javax.swing.JTextField();
-        txtFechaInicio = new javax.swing.JTextField();
-        txtFehaFinal = new javax.swing.JTextField();
-        btActualizar = new javax.swing.JButton();
         comboEstado = new javax.swing.JComboBox();
+        labelTask1 = new org.edisoncor.gui.label.LabelTask();
+        labelRound1 = new org.edisoncor.gui.label.LabelRound();
+        labelRound2 = new org.edisoncor.gui.label.LabelRound();
+        labelRound3 = new org.edisoncor.gui.label.LabelRound();
+        labelRound4 = new org.edisoncor.gui.label.LabelRound();
+        buttonRound1 = new org.edisoncor.gui.button.ButtonRound();
+        labelRound5 = new org.edisoncor.gui.label.LabelRound();
+        jxFechaInicio = new org.jdesktop.swingx.JXDatePicker();
+        jxFechaFinal = new org.jdesktop.swingx.JXDatePicker();
 
-        setPreferredSize(new java.awt.Dimension(600, 600));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbIdProyecto.setFont(new java.awt.Font("Bookman Old Style", 0, 12)); // NOI18N
-        lbIdProyecto.setForeground(new java.awt.Color(0, 102, 255));
-        lbIdProyecto.setText("Id del Proyecto:");
-        getContentPane().add(lbIdProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 20, -1, -1));
-        getContentPane().add(txtIdProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 300, -1));
-
-        lbDecripcion.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbDecripcion.setText("Descripcion:");
-        getContentPane().add(lbDecripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 119, -1, -1));
-
-        lbEstado.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbEstado.setText("Estado:");
-        getContentPane().add(lbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 192, -1, -1));
-
-        lbFechaInicio.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbFechaInicio.setText("Fecha Inicio:");
-        getContentPane().add(lbFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 260, -1, -1));
-
-        lbFechaFinal.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
-        lbFechaFinal.setText("Fecha Final:");
-        getContentPane().add(lbFechaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 306, -1, -1));
-        getContentPane().add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 95, 350, 62));
-        getContentPane().add(txtFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 257, 340, -1));
-        getContentPane().add(txtFehaFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 350, -1));
-
-        btActualizar.setText("Actualizar");
-        btActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btActualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 140, 50));
+        setPreferredSize(new java.awt.Dimension(600, 430));
 
         comboEstado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1. Entregado", "2. Pendiente", "3. Reprocesando" }));
         comboEstado.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +63,108 @@ public class ActualizarProyecto extends javax.swing.JInternalFrame {
                 comboEstadoActionPerformed(evt);
             }
         });
-        getContentPane().add(comboEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 189, 350, -1));
+
+        labelTask1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/QATracker/imagenes/1397534265_earth_internet_reload.png"))); // NOI18N
+        labelTask1.setText("Actualizar Proyecto");
+        labelTask1.setDescription(" ");
+
+        labelRound1.setBackground(new java.awt.Color(255, 153, 51));
+        labelRound1.setText("Descripcion:");
+
+        labelRound2.setBackground(new java.awt.Color(255, 153, 51));
+        labelRound2.setText("Estado");
+        labelRound2.setToolTipText("Estado");
+
+        labelRound3.setBackground(new java.awt.Color(255, 153, 51));
+        labelRound3.setText("Fecha Inicio");
+
+        labelRound4.setBackground(new java.awt.Color(255, 153, 51));
+        labelRound4.setText("Fecha Final");
+
+        buttonRound1.setBackground(new java.awt.Color(51, 153, 255));
+        buttonRound1.setText("Actualizar");
+        buttonRound1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRound1ActionPerformed(evt);
+            }
+        });
+
+        labelRound5.setBackground(new java.awt.Color(51, 153, 255));
+        labelRound5.setText("Id Proyecto");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(labelRound5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(labelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(labelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(jxFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(labelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(jxFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(470, 470, 470)
+                        .addComponent(buttonRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTask1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(labelRound5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(txtIdProyecto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelRound2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jxFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelRound4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jxFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(buttonRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -100,35 +173,56 @@ public class ActualizarProyecto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboEstadoActionPerformed
 
-    private void btActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizarActionPerformed
+    private void buttonRound1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRound1ActionPerformed
         try {
-            // TODO add your handling code here:
             Proyecto proyecto= new Proyecto();
             proyecto.setDescripcionProyecto(txtDescripcion.getText());
             proyecto.setId(Integer.parseInt(txtIdProyecto.getText()));
             proyecto.setEstadoProyecto(comboEstado.getSelectedIndex()+1);
-            proyecto.setFechafinal(Date.valueOf(txtFehaFinal.getText()));
-            proyecto.setFechainicio(Date.valueOf(txtFechaInicio.getText()));
+            
+            java.util.Calendar cal= Calendar.getInstance();
+            java.util.Date utilDate= jxFechaInicio.getDate();
+            cal.setTime(utilDate);
+            cal.set(Calendar.HOUR_OF_DAY, 0);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+            java.sql.Date sqlDateInicio= new java.sql.Date(cal.getTime().getTime());
+   
+            proyecto.setFechainicio(sqlDateInicio);
+            
+            java.util.Calendar calendar= Calendar.getInstance();
+            java.util.Date utilDateFinal= jxFechaFinal.getDate();
+            calendar.setTime(utilDateFinal);
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
+            calendar.set(Calendar.MILLISECOND, 0);
+            java.sql.Date sqlDateFinal= new java.sql.Date(calendar.getTime().getTime());
+            
+            proyecto.setFechafinal(sqlDateFinal);
+            
             QATracker.proyectoBus.actualizar(proyecto);
             JOptionPane.showMessageDialog(rootPane, "El proyecto se ha actualizado.", "Exito!", JOptionPane.PLAIN_MESSAGE);
         } catch (SQLException ex) {
             Logger.getLogger(ActualizarProyecto.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.setVisible(false);
-    }//GEN-LAST:event_btActualizarActionPerformed
+    }//GEN-LAST:event_buttonRound1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btActualizar;
+    private org.edisoncor.gui.button.ButtonRound buttonRound1;
     private javax.swing.JComboBox comboEstado;
-    private javax.swing.JLabel lbDecripcion;
-    private javax.swing.JLabel lbEstado;
-    private javax.swing.JLabel lbFechaFinal;
-    private javax.swing.JLabel lbFechaInicio;
-    private javax.swing.JLabel lbIdProyecto;
+    private org.jdesktop.swingx.JXDatePicker jxFechaFinal;
+    private org.jdesktop.swingx.JXDatePicker jxFechaInicio;
+    private org.edisoncor.gui.label.LabelRound labelRound1;
+    private org.edisoncor.gui.label.LabelRound labelRound2;
+    private org.edisoncor.gui.label.LabelRound labelRound3;
+    private org.edisoncor.gui.label.LabelRound labelRound4;
+    private org.edisoncor.gui.label.LabelRound labelRound5;
+    private org.edisoncor.gui.label.LabelTask labelTask1;
     private javax.swing.JTextField txtDescripcion;
-    private javax.swing.JTextField txtFechaInicio;
-    private javax.swing.JTextField txtFehaFinal;
     private javax.swing.JTextField txtIdProyecto;
     // End of variables declaration//GEN-END:variables
 }

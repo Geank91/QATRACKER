@@ -39,11 +39,15 @@ public class UsuarioBusiness {
         }
     }
 
-    public void imprimir(Usuario usuario) throws SQLException{
-        if (usuarioDAO.exists(usuario)==true) {
-            usuarioDAO.select(usuario);
-        } else {
-            throw new SQLException("No se puede imprimir el usuario por que este no existe en la base de datos");
+    public void save(Usuario usuario) throws SQLException{
+        usuarioDAO.update(usuario);
+    }
+    
+    public void changePassword(Usuario usuario, String clave) throws SQLException{
+        if (usuarioDAO.getUsuarioActual().getClave().matches(clave)) {
+            usuarioDAO.changePass(usuario);
+        }else{
+            throw new SQLException("La clave es incorrecta.");
         }
     }
     

@@ -53,15 +53,18 @@ public class UsuarioDAO {
         mySQLDB.closeExecute();
     }
     
-    public void select(Usuario usuario)throws SQLException{
-        mySQLDB = new MYSQLDB();
-        String sql =  "SELECT * FROM usuario WHERE idUsuario = "+usuario.getIdUsuario()+"";
-        ResultSet res = mySQLDB.executeQuery(sql); 
-        while(res.next()){
-            System.out.println("Nombre: "+res.getString(2));
-            System.out.println("Puesto: "+res.getString(5));
-        }
-        mySQLDB.closeExecuteQuery();
+    public void update(Usuario usuario) throws SQLException{
+        mySQLDB= new MYSQLDB();
+        String sql= "update usuario set NombreUsuario='"+usuario.getDescripcionUsuario()+"', Puesto='"+usuario.getPuesto()+"' where NombreUsuario='"+this.usuarioActual.getDescripcionUsuario()+"'";
+        mySQLDB.execute(sql);
+        mySQLDB.closeExecute();
+    }
+    
+    public void changePass(Usuario usuario) throws SQLException{
+        mySQLDB= new MYSQLDB();
+        String sql="update usuario set Clave='"+usuario.getClave()+"' where NombreUsuario='"+this.usuarioActual.getDescripcionUsuario()+"'";
+        mySQLDB.execute(sql);
+        mySQLDB.closeExecute();
     }
     
     public boolean match(Usuario usuario) throws SQLException{
@@ -92,10 +95,6 @@ public class UsuarioDAO {
         String sql = "select * from usuario where NombreUsuario='"+usuario.getDescripcionUsuario()+"'";
         ResultSet res = mySQLDB.executeQuery(sql);
         if (res.next()){
-            usuario.setIdUsuario(res.getInt(1));
-            usuario.setDescripcionUsuario(res.getString(2));
-            usuario.setClave(res.getString(3));
-            usuario.setEstadoUsuario(res.getInt(4));
             usuario.setPuesto(res.getString(5));
             exist=true;
         }
